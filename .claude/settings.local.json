@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(yarn add:*)",
+      "WebFetch(domain:bootcamp.diyaproject.id)",
+      "WebFetch(domain:binar.co.id)",
+      "Bash(mkdir:*)",
+      "Bash(yarn build)",
+      "Bash(mv:*)",
+      "Bash(yarn remove:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(rm:*)",
+      "Bash(curl:*)"
+    ],
+    "deny": []
+  }
+}
