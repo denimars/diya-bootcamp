@@ -1,10 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 export default function Alumni() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  
   const testimonials = [
     {
       name: "Ayyasy Rosadi",
@@ -24,22 +27,7 @@ export default function Alumni() {
     { name: "Asaba Innotech", logo: "/asaba-innotech-logo.webp", isImage: true },
     { name: "PT Murni Development Indonesia", logo: "/m-dev.jpeg", isImage: true },
     { name: "PT Sharing Vision Indonesia", logo: "/sharing-vision-logo.png", isImage: true },
-    
   ]
-
-  const totalSlides = Math.ceil(testimonials.length / 2)
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
-  }
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
 
   return (
     <section id="alumni" className="section-padding bg-white">
@@ -53,96 +41,85 @@ export default function Alumni() {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto relative">
-          {/* Slider Container */}
-          <div className="overflow-hidden">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-                <div key={slideIndex} className="w-full flex-shrink-0">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 h-full">
-                    {testimonials.slice(slideIndex * 2, slideIndex * 2 + 2).map((testimonial, index) => (
-                      <div 
-                        key={slideIndex * 2 + index}
-                        className="text-center flex flex-col h-full"
-                      >
-                        {/* Profile Photo */}
-                        <div className="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                          <img 
-                            src={testimonial.image} 
-                            alt={testimonial.name}
-                            className="w-full h-full object-cover object-center"
-                          />
-                        </div>
-                        
-                        {/* Testimonial Text */}
-                        <div className="mb-8 px-4 flex-grow">
-                          <p className="text-gray-700 text-lg leading-relaxed">
-                            &ldquo;{testimonial.testimonial}&rdquo;
-                          </p>
-                        </div>
-                        
-                        {/* Alumni Info - Fixed Height for Alignment */}
-                        <div className="space-y-2 min-h-[80px] flex flex-col justify-center mt-auto">
-                          <h4 className="text-2xl font-bold text-gray-900">{testimonial.name}</h4>
-                          <p className="text-primary font-semibold text-lg">{testimonial.role}</p>
-                        </div>
-                      </div>
-                    ))}
+        <div className="max-w-6xl mx-auto relative mb-16">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation={{
+              prevEl: '.swiper-button-prev-custom',
+              nextEl: '.swiper-button-next-custom',
+            }}
+            pagination={{
+              clickable: true,
+              el: '.swiper-pagination-custom',
+            }}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            className="testimonials-swiper"
+          >
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <div className="text-center flex flex-col h-full py-8">
+                  {/* Profile Photo */}
+                  <div className="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </div>
+                  
+                  {/* Testimonial Text */}
+                  <div className="mb-8 px-4 max-w-4xl mx-auto">
+                    <p className="text-gray-700 text-lg leading-relaxed">
+                      &ldquo;{testimonial.testimonial}&rdquo;
+                    </p>
+                  </div>
+                  
+                  {/* Alumni Info */}
+                  <div className="space-y-2">
+                    <h4 className="text-2xl font-bold text-gray-900">{testimonial.name}</h4>
+                    <p className="text-primary font-semibold text-lg">{testimonial.role}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Navigation Arrows */}
-          <button 
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 text-primary hover:text-primary-dark"
-          >
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Custom Navigation Buttons */}
+          <button className="swiper-button-prev-custom absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 text-primary hover:text-primary-dark z-10">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           
-          <button 
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 text-primary hover:text-primary-dark"
-          >
+          <button className="swiper-button-next-custom absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 text-primary hover:text-primary-dark z-10">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
-          
-          {/* Pagination Dots */}
-          <div className="flex justify-center space-x-3 mb-16 mt-8">
-            {Array.from({ length: totalSlides }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentSlide === index ? 'bg-primary' : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
+
+          {/* Custom Pagination */}
+          <div className="swiper-pagination-custom flex justify-center space-x-3 mt-8"></div>
         </div>
 
-        <div className="bg-gradient-to-r from-primary to-primary-light rounded-3xl p-8 md:p-12 text-white text-center">
-          <h3 className="text-3xl font-bold mb-8">
+        <div className="bg-gradient-to-r from-primary to-primary-light rounded-3xl p-6 md:p-12 text-white text-center">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8">
             Alumni Kami Bekerja Di
           </h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {companies.map((company, index) => (
               <div 
                 key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center min-h-[120px] h-full"
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center min-h-[100px] md:min-h-[120px] h-full"
               >
                 {company.isImage ? (
-                  <div className="mb-3 h-12 w-full flex items-center justify-center">
+                  <div className="mb-2 md:mb-3 h-8 md:h-12 w-full flex items-center justify-center">
                     <img 
                       src={company.logo}
                       alt={`${company.name} logo`}
@@ -152,9 +129,9 @@ export default function Alumni() {
                     />
                   </div>
                 ) : (
-                  <div className="text-4xl mb-2">{company.logo}</div>
+                  <div className="text-2xl md:text-4xl mb-1 md:mb-2">{company.logo}</div>
                 )}
-                <p className="font-semibold text-center text-sm">{company.name}</p>
+                <p className="font-semibold text-center text-xs md:text-sm leading-tight">{company.name}</p>
               </div>
             ))}
           </div>
