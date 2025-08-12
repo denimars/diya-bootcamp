@@ -14,13 +14,6 @@ export default function Footer() {
     { label: "Program Beasiswa", href: "#" }
   ]
 
-  const support = [
-    { label: "FAQ", href: "#" },
-    { label: "Syarat & Ketentuan", href: "#" },
-    { label: "Kebijakan Privasi", href: "#" },
-    { label: "Bantuan", href: "#" }
-  ]
-
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container-max px-4 sm:px-6 lg:px-8">
@@ -36,24 +29,9 @@ export default function Footer() {
               </div>
               
               <p className="text-gray-400 leading-relaxed mb-6 max-w-md">
-                Platform bootcamp terdepan untuk menghasilkan digital talent berkualitas tinggi. 
-                Bergabunglah dengan ribuan alumni yang telah sukses berkarir di perusahaan teknologi terkemuka.
+                Platform bootcamp terdepan untuk menghasilkan digital talent berkualitas. 
+                Bergabunglah dengan alumni yang telah sukses berkarir di industri.
               </p>
-              
-              <div className="flex space-x-4">
-                <a href="#" className="bg-gray-800 hover:bg-primary p-3 rounded-lg transition-colors duration-300">
-                  <span className="text-xl">📷</span>
-                </a>
-                <a href="#" className="bg-gray-800 hover:bg-primary p-3 rounded-lg transition-colors duration-300">
-                  <span className="text-xl">📹</span>
-                </a>
-                <a href="#" className="bg-gray-800 hover:bg-primary p-3 rounded-lg transition-colors duration-300">
-                  <span className="text-xl">💼</span>
-                </a>
-                <a href="#" className="bg-gray-800 hover:bg-primary p-3 rounded-lg transition-colors duration-300">
-                  <span className="text-xl">🐦</span>
-                </a>
-              </div>
             </div>
 
             <div>
@@ -88,21 +66,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-6">Bantuan</h4>
-              <ul className="space-y-3">
-                {support.map((item, index) => (
-                  <li key={index}>
-                    <a 
-                      href={item.href}
-                      className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+           
           </div>
         </div>
 

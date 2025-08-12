@@ -52,7 +52,7 @@ export default function About() {
       <div className="container-max">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Tentang <span className="text-gradient">Diya Project</span>
+            Tentang <span className="text-gradient">Diya Bootcamp</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Kami berkomitmen mengembangkan sumber daya manusia IT yang profesional, 

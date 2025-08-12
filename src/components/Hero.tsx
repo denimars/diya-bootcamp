@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="block text-gradient bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-              Digital Talent
+              Diya Bootcamp
             </span>
           </h1>
           

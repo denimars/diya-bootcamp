@@ -5,13 +5,13 @@ export default function Contact() {
     {
       icon: "📧",
       title: "Email",
-      detail: "info@digitaltalent.id",
+      detail: "info@diyaproject.id",
       action: "Kirim Email"
     },
     {
       icon: "📱", 
       title: "WhatsApp",
-      detail: "+62 812 3456 7890",
+      detail: "+6281234567890",
       action: "Chat WhatsApp"
     },
     {
@@ -23,11 +23,8 @@ export default function Contact() {
   ]
 
   const socialMedia = [
-    { name: "Instagram", icon: "📷", handle: "@digitaltalent.id" },
-    { name: "YouTube", icon: "📹", handle: "Digital Talent Bootcamp" },
-    { name: "LinkedIn", icon: "💼", handle: "Digital Talent Indonesia" },
-    { name: "Twitter", icon: "🐦", handle: "@digitaltalentid" }
-  ]
+    { name: "Instagram", icon: "📷", handle: "@diyabootcamp" },
+    ]
 
   return (
     <section id="kontak" className="section-padding bg-gradient-to-br from-gray-900 via-primary-dark to-primary text-white">
