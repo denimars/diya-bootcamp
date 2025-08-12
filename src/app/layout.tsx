@@ -5,12 +5,12 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Digital Talent Bootcamp - Menghasilkan Digital Talent',
+  title: 'Diya Bootcamp - Menghasilkan Digital Talent',
   description: 'Bergabung dengan program bootcamp terbaik untuk mengembangkan skill digital dan meraih karir impian di bidang teknologi.',
-  keywords: 'bootcamp, digital talent, programming, web development, career development',
-  authors: [{ name: 'Digital Talent Bootcamp' }],
+  keywords: 'bootcamp, digital talent, programming, web development, career development, diya bootcamp, lombok, mataram, ntb',
+  authors: [{ name: 'Diya Bootcamp' }],
   openGraph: {
-    title: 'Digital Talent Bootcamp - Menghasilkan Digital Talent',
+    title: 'Diya Bootcamp - Menghasilkan Digital Talent',
     description: 'Program bootcamp terbaik untuk mengembangkan skill digital dan meraih karir impian.',
     type: 'website',
   },
