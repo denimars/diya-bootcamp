@@ -2,6 +2,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import Image from 'next/image'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -66,9 +67,11 @@ export default function Alumni() {
                 <div className="text-center flex flex-col h-full py-8">
                   {/* Profile Photo */}
                   <div className="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                    <img 
+                    <Image 
                       src={testimonial.image} 
                       alt={testimonial.name}
+                      width={192}
+                      height={192}
                       className="w-full h-full object-cover object-center"
                     />
                   </div>
@@ -119,10 +122,13 @@ export default function Alumni() {
                 className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center min-h-[100px] md:min-h-[120px] h-full"
               >
                 {company.isImage ? (
-                  <div className="mb-2 md:mb-3 h-8 md:h-12 w-full flex items-center justify-center">
-                    <img 
+                  <div className="mb-2 md:mb-3 h-12 md:h-16 w-full flex items-center justify-center">
+                    <Image 
                       src={company.logo}
                       alt={`${company.name} logo`}
+                      width={200}
+                      height={100}
+                      quality={100}
                       className={`max-h-full max-w-full object-contain ${
                         company.name !== "PT Murni Development Indonesia" ? "filter brightness-0 invert" : ""
                       }`}

@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Footer() {
   const quickLinks = [
     { label: "Beranda", href: "#beranda" },
@@ -21,9 +23,11 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             <div className="lg:col-span-2">
               <div className="flex items-center mb-6">
-                <img 
+                <Image 
                   src="/diya-white.png" 
                   alt="Diya Project Logo" 
+                  width={80}
+                  height={80}
                   className="h-20 w-auto"
                 />
               </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -34,9 +35,13 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm" ref={menuRef}>
       <nav className="container-max flex items-center justify-between py-4 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center space-x-3">
-          <img 
+          <Image 
             src="/diya-blue.png" 
             alt="Diya Project Logo" 
+            width={120}
+            height={120}
+            quality={100}
+            priority
             className="h-12 w-auto"
           />
         </div>
