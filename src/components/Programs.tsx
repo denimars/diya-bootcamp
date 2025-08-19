@@ -18,20 +18,20 @@ export default function Programs() {
         "Back End Development",
         "Front End Development (Mobile & Web)",
         "Database Management",
-        "Deployment & DevOps"
+        "Deployment"
       ],
       popular: true
     },
     {
-      title: "Network Engineer",
+      title: "Cyber Security",
       duration: "8 Bulan", 
-      description: "Kuasai teknologi jaringan dan infrastruktur IT untuk membangun sistem komunikasi yang handal",
+      description: "Kuasai teknologi keamanan siber untuk melindungi sistem dan data dari ancaman digital",
       features: [
-        "Network Fundamentals & Protocols",
-        "Mikrotik & Juniper Configuration",
+        "Security Fundamentals & Risk Assessment",
+        "Penetration Testing & Ethical Hacking",
         "Network Security & Firewalls",
-        "Cloud Networking (AWS, Azure)",
-        "Network Monitoring & Troubleshooting"
+        "Cloud Security (AWS, Azure)",
+        "Incident Response & Forensics"
       ],
       popular: false
     },
